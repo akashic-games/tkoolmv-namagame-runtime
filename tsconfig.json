@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ES2021"],
+    "noImplicitAny": true,
+    "module": "commonjs" ,
+    "outDir": "./script",
+    "types" : [],
+    "allowUmdGlobalAccess": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "files": [
+    "node_modules/@akashic/akashic-engine/index.runtime.d.ts"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./typings/*.d.ts"
+  ]
+}

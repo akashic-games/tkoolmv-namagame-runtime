@@ -1,0 +1,32 @@
+{
+    "extends": [
+        "@akashic/eslint-config",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module"
+    },
+    "ignorePatterns": [
+        "*.js",
+        "**/*.d.ts"
+    ],
+    "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": ["variable", "function", "classProperty", "classMethod"],
+                "format": ["camelCase", "UPPER_CASE"],
+                "leadingUnderscore": "allow"
+            },
+            {
+                "selector": ["typeAlias", "interface"],
+                "format": ["PascalCase"]
+            }
+        ]
+    }
+}
