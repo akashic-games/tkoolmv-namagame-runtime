@@ -13,7 +13,8 @@
     "lint:textlint": "textlint -f pretty-error ./",
     "format": "npm run format:prettier && npm run format:eslint",
     "format:prettier": "prettier --write \"src/**/*.ts\" --config prettier.config.json",
-    "format:eslint": "eslint -c .eslintrc \"src/**/*.ts\" --fix"
+    "format:eslint": "eslint -c .eslintrc \"src/**/*.ts\" --fix",
+    "release": "node build/release.js"
   },
   "author": "DWANGO Co., Ltd.",
   "license": "MIT",
