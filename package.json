@@ -1,6 +1,6 @@
 {
   "name": "@akashic/tkoolmv-namagame-runtime",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "RPG ツクール MV で作成したゲームをニコ生ゲームとして動作させるためのスクリプトアセット",
   "main": "./script/_bootstrap.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "lint:textlint": "textlint -f pretty-error ./",
     "format": "npm run format:prettier && npm run format:eslint",
     "format:prettier": "prettier --write \"src/**/*.ts\" --config prettier.config.json",
-    "format:eslint": "eslint -c .eslintrc \"src/**/*.ts\" --fix"
+    "format:eslint": "eslint -c .eslintrc \"src/**/*.ts\" --fix",
+    "release": "node build/release.js"
   },
   "author": "DWANGO Co., Ltd.",
   "license": "MIT",
