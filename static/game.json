@@ -23,6 +23,11 @@
 			"type": "script",
 			"path": "script/tkool/PIXI/Rectangle.js",
 			"global": true
+		},
+		"Plugins": {
+			"type": "text",
+			"path": "text/Plugins.json",
+			"global": true
 		}
 	},
 	"environment": {
