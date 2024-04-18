@@ -32,6 +32,8 @@ function assignAsset(targetScene: g.Scene) {
 		}
 		return !anAsset;
 	});
+	// グローバル変数$data~の値更新後すぐに利用箇所への反映を行う(利用箇所の実行タイミングが不明なので)。
+	DataManager._onReset.fire();
 }
 
 function createLoadingLocalScene(): g.Scene {
