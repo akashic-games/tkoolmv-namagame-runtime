@@ -65,7 +65,7 @@ export function createStandardBuiltinObjectExtensions(): StandardBuiltinObjectEx
 						return false;
 					}
 					for (let i = 0; i < this.length; i++) {
-						if (this[i] instanceof Array && array[i] instanceof Array) {
+						if (Array.isArray(this[i]) && Array.isArray(array[i])) {
 							if (!this[i].equals(array[i])) {
 								return false;
 							}
