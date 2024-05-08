@@ -178,7 +178,7 @@ export class Sprite extends PIXI.Container {
 	}
 
 	setBlendColor(color: number[]) {
-		if (!(color instanceof Array)) {
+		if (!Array.isArray(color)) {
 			throw new Error("Argument must be an array");
 		}
 		// if (!this._blendColor.equals(color)) {

@@ -136,7 +136,7 @@ export class JsonEx {
 						} else {
 							value[key] = JsonEx._encode(value[key], circular, depth + 1);
 
-							if (value[key] instanceof Array) {
+							if (Array.isArray(value[key])) {
 								// wrap array
 								circular.push([key, value, value[key]]);
 
