@@ -9,21 +9,6 @@
 			"path": "script/_bootstrap.js",
 			"global": true
 		},
-		"tkool_PIXI_index": {
-			"type": "script",
-			"path": "script/tkool/PIXI/index.js",
-			"global": true
-		},
-		"tkool_PIXI_filters_index": {
-			"type": "script",
-			"path": "script/tkool/PIXI/filters/index.js",
-			"global": true
-		},
-		"tkool_PIXI_Rectangle": {
-			"type": "script",
-			"path": "script/tkool/PIXI/Rectangle.js",
-			"global": true
-		},
 		"Plugins": {
 			"type": "text",
 			"path": "text/Plugins.json",
@@ -37,13 +22,5 @@
 				"ranking"
 			]
 		}
-	},
-	"globalScripts": [
-		"node_modules/@akashic-extension/akashic-hover-plugin/lib/Converter.js",
-		"node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
-		"node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js"
-	],
-	"moduleMainScripts": {
-		"@akashic-extension/akashic-hover-plugin": "node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js"
 	}
 }

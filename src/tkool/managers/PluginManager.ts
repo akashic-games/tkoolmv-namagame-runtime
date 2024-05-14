@@ -38,7 +38,7 @@ export class PluginManager {
 
 	static loadScript(name: string): void {
 		if (!g.game.assets[name]) {
-			throw new Error("not found asset:");
+			throw new Error(`not found asset: ${name}`);
 		}
 		g.game._moduleManager._require(`${name}`);
 	}

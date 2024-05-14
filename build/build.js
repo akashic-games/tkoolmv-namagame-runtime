@@ -23,13 +23,10 @@ const gameDirPath = path.join(tkoolmvRuntimeDirPath, "game");
 shell.mkdir(gameDirPath);
 ["assets", "text", "game.json"].forEach(f => shell.cp("-Rf", path.join(staticDirPath, f), gameDirPath));
 shell.cp("-Rf", scriptDirPath, gameDirPath);
-// 外部モジュールのコピー
-const gameJson = require(path.join(gameDirPath, "game.json"));
-(gameJson["globalScripts"] ?? []).forEach(scriptPath => {
-	const dirPath = path.join(gameDirPath, path.dirname(scriptPath));
-	if (!fs.existsSync(dirPath)) {
-		shell.mkdir("-p", dirPath);
-	}
-	shell.cp(path.join(__dirname, "..", scriptPath), dirPath);
-});
+// スクリプトファイルバンドル処理・配置
+shell.exec(`browserify -r ./script/tkool/index.js -o ${path.join(distDirPath, "__tmp_rollup_bundle.js")} -s TkoolmvNamagame`);
+const scriptTkoolPath = path.join(gameDirPath, "script", "tkool");
+shell.rm("-Rf", path.join(scriptTkoolPath, "*"));
+shell.mv(path.join(distDirPath, "__tmp_rollup_bundle.js"), path.join(scriptTkoolPath, "index.js"));
+shell.cp("-Rf", path.join(scriptDirPath, "tkool", "plugins"), scriptTkoolPath);
 shell.exec(`cd ${gameDirPath} && ${path.resolve(__dirname, "../node_modules/.bin/akashic-cli-scan")} asset`);
