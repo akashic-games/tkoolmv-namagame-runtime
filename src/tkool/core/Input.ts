@@ -135,7 +135,7 @@ export class Input {
 			if (Input._currentState[name] && !Input._previousState[name]) {
 				Input._latestButton = name;
 				Input._pressedTime = 0;
-				Input._date = Date.now();
+				Input._date = g.game.age;
 			}
 			Input._previousState[name] = Input._currentState[name];
 		}

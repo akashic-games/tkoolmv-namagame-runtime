@@ -582,7 +582,7 @@ declare const TranslationManager: any;
 		_blendMode: any
 	) {
 		if (($gameScreen as any).isSettingDText() && !name) {
-			arguments[0] = Date.now().toString();
+			arguments[0] = g.game.random.generate().toString();
 			this.dTextInfo = ($gameScreen as any).getDTextPictureInfo();
 			($gameScreen as any).clearDTextPicture();
 		} else {
@@ -602,7 +602,7 @@ declare const TranslationManager: any;
 	(Game_Picture.prototype as any).updateDTextVariable = function () {
 		($gameVariables as any).getChangedVariables().forEach(function (variableId: number) {
 			if (this.dTextInfo.usingVariables.includes(variableId)) {
-				this._name = Date.now().toString();
+				this._name = g.game.random.generate().toString();
 				this.dTextInfo.value = getArgString(this.dTextInfo.originalValue, false);
 			}
 		}, this);

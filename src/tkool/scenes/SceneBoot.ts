@@ -31,7 +31,7 @@ export class Scene_Boot extends Scene_Base {
 	}
 
 	initialize() {
-		this._startDate = Date.now();
+		this._startDate = g.game.age;
 		super.initialize();
 	}
 
@@ -62,8 +62,8 @@ export class Scene_Boot extends Scene_Base {
 		if (Graphics.isFontLoaded("GameFont")) {
 			return true;
 		} else if (!Graphics.canUseCssFontLoading()) {
-			const elapsed = Date.now() - this._startDate;
-			if (elapsed >= 60000) {
+			const elapsed = g.game.age - this._startDate;
+			if (elapsed >= 60 * g.game.fps) {
 				throw new Error("Failed to load GameFont");
 			}
 		}

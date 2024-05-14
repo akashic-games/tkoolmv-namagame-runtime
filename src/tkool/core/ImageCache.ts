@@ -17,7 +17,7 @@ export class ImageCache {
 	add(key: string, value: Bitmap): void {
 		this._items[key] = {
 			bitmap: value,
-			touch: Date.now(),
+			touch: g.game.age,
 			key: key
 		};
 
@@ -27,7 +27,7 @@ export class ImageCache {
 	get(key: string): Bitmap | null {
 		if (this._items[key]) {
 			const item = this._items[key];
-			item.touch = Date.now();
+			item.touch = g.game.age;
 			return item.bitmap;
 		}
 
@@ -38,7 +38,7 @@ export class ImageCache {
 		if (!this._items[key]) {
 			this._items[key] = {
 				bitmap: value,
-				touch: Date.now(),
+				touch: g.game.age,
 				key: key
 			};
 		}

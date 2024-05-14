@@ -263,7 +263,7 @@ export class TouchInput {
 		this._events.triggered = true;
 		this._x = x;
 		this._y = y;
-		this._date = Date.now();
+		this._date = g.game.age;
 	}
 
 	private static _onCancel(x: number, y: number) {

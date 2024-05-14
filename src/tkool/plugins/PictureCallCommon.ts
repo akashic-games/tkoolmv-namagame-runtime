@@ -1226,7 +1226,7 @@ import {
 
 	const touchInputOnTrigger = (TouchInput as any)._onTrigger;
 	(TouchInput as any)._onTrigger = function (x: number, y: number) {
-		if (this._date && Date.now() - this._date < this.keyDoubleClickInterval) this._events.doubleTriggered = true;
+		if (this._date && g.game.age - this._date < this.keyDoubleClickInterval) this._events.doubleTriggered = true;
 		this._pressedDistance = 0;
 		this._prevX = x;
 		this._prevY = y;
