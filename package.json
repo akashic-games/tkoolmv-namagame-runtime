@@ -1,6 +1,6 @@
 {
   "name": "@akashic/tkoolmv-namagame-runtime",
-  "version": "2.0.3",
+  "version": "2.0.4-beta.0",
   "description": "RPG ツクール MV で作成したゲームをニコ生ゲームとして動作させるためのスクリプトアセット",
   "main": "./script/_bootstrap.js",
   "scripts": {
