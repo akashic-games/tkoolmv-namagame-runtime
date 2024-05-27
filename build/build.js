@@ -22,11 +22,17 @@ fs.writeFileSync(path.join(tkoolmvRuntimeDirPath, "README.html"), marked.marked(
 const gameDirPath = path.join(tkoolmvRuntimeDirPath, "game");
 shell.mkdir(gameDirPath);
 ["assets", "text", "game.json"].forEach(f => shell.cp("-Rf", path.join(staticDirPath, f), gameDirPath));
-shell.cp("-Rf", scriptDirPath, gameDirPath);
-// スクリプトファイルバンドル処理・配置
-shell.exec(`browserify -r ./script/tkool/index.js -o ${path.join(distDirPath, "__tmp_rollup_bundle.js")} -s TkoolmvNamagame`);
-const scriptTkoolPath = path.join(gameDirPath, "script", "tkool");
-shell.rm("-Rf", path.join(scriptTkoolPath, "*"));
-shell.mv(path.join(distDirPath, "__tmp_rollup_bundle.js"), path.join(scriptTkoolPath, "index.js"));
-shell.cp("-Rf", path.join(scriptDirPath, "tkool", "plugins"), scriptTkoolPath);
+const scriptDistDirPath = path.join(gameDirPath, "script");
+const scriptTkoolDistDirPath = path.join(scriptDistDirPath, "tkool");
+shell.mkdir("-p", scriptTkoolDistDirPath);
+// script直下のファイルとプラグインはバンドルしないため直接コピー
+fs.readdirSync(scriptDirPath).forEach(name => {
+	const filePath = path.join(scriptDirPath, name);
+	if (fs.statSync(filePath).isFile()) {
+		shell.cp(filePath, scriptDistDirPath);
+	}
+});
+shell.cp("-Rf", path.join(scriptDirPath, "tkool", "plugins"), scriptTkoolDistDirPath);
+// tkoolディレクトリ以下のスクリプトファイルバンドル処理
+shell.exec(`browserify -e ${path.join(scriptDirPath, "tkool", "index.js")} -o ${path.join(scriptTkoolDistDirPath, "index.js")} -s TkoolmvNamagame`);
 shell.exec(`cd ${gameDirPath} && ${path.resolve(__dirname, "../node_modules/.bin/akashic-cli-scan")} asset`);
