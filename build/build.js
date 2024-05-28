@@ -26,12 +26,7 @@ const scriptDistDirPath = path.join(gameDirPath, "script");
 const scriptTkoolDistDirPath = path.join(scriptDistDirPath, "tkool");
 shell.mkdir("-p", scriptTkoolDistDirPath);
 // script直下のファイルとプラグインはバンドルしないため直接コピー
-fs.readdirSync(scriptDirPath).forEach(name => {
-	const filePath = path.join(scriptDirPath, name);
-	if (fs.statSync(filePath).isFile()) {
-		shell.cp(filePath, scriptDistDirPath);
-	}
-});
+shell.cp(path.join(scriptDirPath, "*.js"), scriptDistDirPath);
 shell.cp("-Rf", path.join(scriptDirPath, "tkool", "plugins"), scriptTkoolDistDirPath);
 // tkoolディレクトリ以下のスクリプトファイルバンドル処理
 shell.exec(`browserify -e ${path.join(scriptDirPath, "tkool", "index.js")} -o ${path.join(scriptTkoolDistDirPath, "index.js")} -s TkoolmvNamagame`);
