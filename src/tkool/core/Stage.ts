@@ -4,8 +4,11 @@ import { Graphics } from "./Graphics";
 import { TouchInput } from "./TouchInput";
 import { Utils } from "./Utils";
 
-const hoverPlugin = g.game.operationPluginManager.register(hover.HoverPlugin, Utils._akashicHoverPluginId);
-g.game.operationPluginManager.start(Utils._akashicHoverPluginId);
+let hoverPlugin = g.game.operationPluginManager.plugins[Utils._akashicHoverPluginId];
+if (!hoverPlugin) {
+	hoverPlugin = g.game.operationPluginManager.register(hover.HoverPlugin, Utils._akashicHoverPluginId);
+	g.game.operationPluginManager.start(Utils._akashicHoverPluginId);
+}
 
 // MV では Stage は Container から派生している(Scene と Sprite などとの間に区別がない)。
 export class Stage {

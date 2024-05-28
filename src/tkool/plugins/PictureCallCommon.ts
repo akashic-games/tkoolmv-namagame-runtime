@@ -91,13 +91,13 @@ import {
 	Sprite_Picture,
 	Spriteset_Base,
 	Window_Base,
-	$gameScreen,
 	$dataCommonEvents,
 	$dataSystem,
-	$gameSwitches,
 	$gameMap,
 	$gameParty,
 	$gameVariables,
+	$gameScreen,
+	$gameSwitches,
 	$gameTemp,
 	$gameTroop
 } from "../../tkool/index";
