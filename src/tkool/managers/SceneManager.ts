@@ -272,6 +272,7 @@ export class SceneManager {
 		try {
 			if (!ImageManager.isReady()) {
 				g.game.pushScene(createLoadingLocalScene());
+				g.game.age--; // ローカルシーンに入る時でもageが1つ進んでしまっているので元に戻す対応
 				return;
 			}
 			this.tickStart();
@@ -421,9 +422,6 @@ export class SceneManager {
 			};
 
 			akashicScene.onUpdate.add(updateSceneManager);
-
-			// 一度実行しないと未初期化のシーンが１フレームレンダリングされてしまう。
-			updateSceneManager();
 		});
 		g.game.pushScene(akashicScene);
 	}
