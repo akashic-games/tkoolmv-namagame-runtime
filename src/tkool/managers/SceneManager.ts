@@ -272,7 +272,6 @@ export class SceneManager {
 		try {
 			if (!ImageManager.isReady()) {
 				g.game.pushScene(createLoadingLocalScene());
-				return;
 			}
 			this.tickStart();
 			// if (Utils.isMobileSafari()) {
