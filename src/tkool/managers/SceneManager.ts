@@ -270,10 +270,6 @@ export class SceneManager {
 
 	static update() {
 		try {
-			if (!ImageManager.isReady()) {
-				g.game.pushScene(createLoadingLocalScene());
-				return;
-			}
 			this.tickStart();
 			// if (Utils.isMobileSafari()) {
 			// 	this.updateInputData();
@@ -418,6 +414,9 @@ export class SceneManager {
 			const updateSceneManager = () => {
 				SceneManager.update();
 				akashicScene.modified();
+				if (!ImageManager.isReady()) {
+					g.game.pushScene(createLoadingLocalScene());
+				}
 			};
 
 			akashicScene.onUpdate.add(updateSceneManager);
