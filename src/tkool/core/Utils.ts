@@ -82,7 +82,7 @@ export class Utils {
 
 	// RPGツクール用のパスをAkashic Engine用のパスにリネーム
 	static assetPathOfName(path: string) {
-		return `/assets/${decodeURIComponent(path)}`;
+		return `/assets/${path}`;
 	}
 
 	static randomInt(max: number): number {
