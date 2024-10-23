@@ -63,7 +63,7 @@ export class ImageManager {
 
 	static loadBitmap(folder: string, filename: string, hue?: number, smooth?: boolean) {
 		if (filename) {
-			// Akashic Engine ではアセットパスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコードは不要
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
 			// const path = folder + encodeURIComponent(filename) + ".png";
 			const path = `${folder}${filename}.png`;
 			const bitmap = this.loadNormalBitmap(path, hue || 0);
@@ -89,7 +89,7 @@ export class ImageManager {
 		const key = this._generateCacheKey(path, hue);
 		let bitmap = this._imageCache.get(key);
 		if (!bitmap) {
-			// Akashic Engine ではアセットパスのエンコードは行わないので、デコードも不要
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
 			// bitmap = Bitmap.load(decodeURIComponent(path));
 			bitmap = Bitmap.load(path);
 			bitmap.addLoadListener(() => {
@@ -185,7 +185,7 @@ export class ImageManager {
 
 	static reserveBitmap(folder: string, filename: string, hue?: number, smooth?: boolean, reservationId?: number) {
 		if (filename) {
-			// Akashic Engine ではアセットパスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコードは不要
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
 			// const path = folder + encodeURIComponent(filename) + ".png";
 			const path = `${folder}${filename}.png`;
 			const bitmap = this.reserveNormalBitmap(path, hue || 0, reservationId || this._defaultReservationId);
@@ -269,7 +269,7 @@ export class ImageManager {
 
 	static requestBitmap(folder: string, filename: string, hue?: number, smooth?: boolean) {
 		if (filename) {
-			// Akashic Engine ではアセットパスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコードは不要
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
 			// const path = folder + encodeURIComponent(filename) + ".png";
 			const path = `${folder}${filename}.png`;
 			const bitmap = this.requestNormalBitmap(path, hue || 0);
