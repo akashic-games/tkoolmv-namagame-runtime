@@ -253,7 +253,7 @@ declare const TranslationManager: any;
  *  についても制限はありません。
  *  このプラグインはもうあなたのものです。
  */
-(function () {
+((): void => {
 	"use strict";
 
 	const getCommandName = function (command: string) {

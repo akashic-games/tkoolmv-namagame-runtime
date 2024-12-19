@@ -1,6 +1,6 @@
 {
   "name": "@akashic/tkoolmv-namagame-runtime",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "RPG ツクール MV で作成したゲームをニコ生ゲームとして動作させるためのスクリプトアセット",
   "main": "./script/_bootstrap.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "@akashic/eslint-config": "^1.1.1",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "archiver": "^5.3.1",
+    "browserify": "^17.0.0",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-import": "^2.28.0",
