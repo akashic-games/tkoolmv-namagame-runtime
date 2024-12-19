@@ -63,7 +63,9 @@ export class ImageManager {
 
 	static loadBitmap(folder: string, filename: string, hue?: number, smooth?: boolean) {
 		if (filename) {
-			const path = folder + encodeURIComponent(filename) + ".png";
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
+			// const path = folder + encodeURIComponent(filename) + ".png";
+			const path = `${folder}${filename}.png`;
 			const bitmap = this.loadNormalBitmap(path, hue || 0);
 			bitmap.smooth = smooth;
 			return bitmap;
@@ -87,7 +89,9 @@ export class ImageManager {
 		const key = this._generateCacheKey(path, hue);
 		let bitmap = this._imageCache.get(key);
 		if (!bitmap) {
-			bitmap = Bitmap.load(decodeURIComponent(path));
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
+			// bitmap = Bitmap.load(decodeURIComponent(path));
+			bitmap = Bitmap.load(path);
 			bitmap.addLoadListener(() => {
 				bitmap.rotateHue(hue);
 			});
@@ -181,7 +185,9 @@ export class ImageManager {
 
 	static reserveBitmap(folder: string, filename: string, hue?: number, smooth?: boolean, reservationId?: number) {
 		if (filename) {
-			const path = folder + encodeURIComponent(filename) + ".png";
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
+			// const path = folder + encodeURIComponent(filename) + ".png";
+			const path = `${folder}${filename}.png`;
 			const bitmap = this.reserveNormalBitmap(path, hue || 0, reservationId || this._defaultReservationId);
 			bitmap.smooth = smooth;
 			return bitmap;
@@ -263,7 +269,9 @@ export class ImageManager {
 
 	static requestBitmap(folder: string, filename: string, hue?: number, smooth?: boolean) {
 		if (filename) {
-			const path = folder + encodeURIComponent(filename) + ".png";
+			// Akashic Engine では画像パスは単に game.json に記載されているアセットを指定するためのキー情報にすぎないため、エンコード・デコードは不要
+			// const path = folder + encodeURIComponent(filename) + ".png";
+			const path = `${folder}${filename}.png`;
 			const bitmap = this.requestNormalBitmap(path, hue || 0);
 			bitmap.smooth = smooth;
 			return bitmap;

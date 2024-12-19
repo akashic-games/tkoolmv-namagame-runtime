@@ -6,7 +6,7 @@ const archiver = require("archiver");
 const tkoolmvRuntimeDirPath = path.resolve(__dirname, "..", "dist", "tkoolmv-namagame-runtime");
 const packageJson = require(path.resolve(__dirname, "..", "package.json"));
 const version = packageJson["version"];
-const tkoolmvRuntimeZipPath = path.resolve(__dirname, "..", "dist", `tkoolmv-namagame-runtime-${version}.zip`);
+const tkoolmvRuntimeZipPath = path.resolve(__dirname, "..", "dist", `tkoolmv-namagame-runtime.zip`);
 
 (async() => {
 	if (fs.existsSync(tkoolmvRuntimeZipPath)) {
